@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональный сайт</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body class="dark">
+    <div class="container">
+        <header>
+            <h1>Максим Мичков</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="resume.html">Резюме</a></li>
+                    <li><a href="biography.html">Биография</a></li>
+                    <li><a href="presentation.html">Реферат</a></li>
+                    <li><a href="library.html">Библиотека</a></li>
+                    <li><a href="links.html">Ссылки</a></li>
+                    <li><a href="search-report.html">Отчет о поиске</a></li>
+                    <li><a href="personal.html">Индивидуальный раздел</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="presentation">
+                <div class="hidable-title" id="section1-title" onclick="toggleSection('section1')">
+                    <h2><span class="arrow" id="section1-arrow">▶</span> Реферат на русском</h2>
+                </div>
+                
+                <div class="hidable-content" id="section1-content">
+
+                    <h2 id="-">Введение</h2>
+                    <p>Теория вычислений традиционно фокусируется на программном обеспечении как реализации математических функций, преобразующих входные данные в выходные. При этом механизм выполнения этих функций считается второстепенным, и рассматривается через абстракцию машины Тьюринга. В отличие от этого, встроенное (embedded) программное обеспечение (ПО) ориентировано на взаимодействие с реальным миром, управляя физическими процессами и устройствами, такими как автомобили, медицинские приборы, роботы, аудиооборудование, системы безопасности и многое другое.</p>
+                    <p>Разработка встроенного ПО имеет свои особенности и требования, которые отличают его от традиционного программного обеспечения. Основные из этих требований включают:</p>
+                    <ol>
+                    <li><strong>Временные ограничения</strong> — ПО должно учитывать временные аспекты как для выполнения инструкций, так и для взаимодействия с реальным миром.</li>
+                    <li><strong>Энергетические ограничения</strong> — минимизация потребления энергии является важной задачей для многих встроенных систем.</li>
+                    <li><strong>Параллельность</strong> — встроенные системы часто должны работать с несколькими процессами, протекающими одновременно, что требует соответствующей обработки данных.</li>
+                    <li><strong>Разнородность внешних устройств</strong> — устройства, с которыми взаимодействует ПО, могут иметь разные протоколы и характеристики.</li>
+                    <li><strong>Разнородность вычислительных устройств</strong> — различные устройства, на которых работает ПО, могут иметь разные архитектуры, что требует высокой гибкости и поддержки множества платформ.</li>
+                    <li><strong>Устойчивость к сбоям</strong> — встроенное ПО должно быть высокоустойчивым и всегда готовым к восстановлению после сбоев.</li>
+                    </ol>
+                    <p>Эти особенности делают тестирование встроенного ПО особенно важным и сложным. Процесс тестирования требует взаимодействия с реальными устройствами и часто невозможен без наличия физического стенда, что значительно замедляет и усложняет процесс разработки.</p>
+                    <h3 id="-">Роль симуляторов в тестировании встроенных систем</h3>
+                    <p>Для упрощения тестирования и ускорения разработки используются симуляторы — программные средства, которые позволяют моделировать работу встроенных систем без необходимости использования реального оборудования. Симуляторы делают возможным тестирование встроенного ПО на виртуальных устройствах, что позволяет проводить как ручное, так и автоматическое тестирование без задержек, свойственных работе с физическими стендами.</p>
+                    <p>Симуляторы можно классифицировать по уровням абстракции:</p>
+                    <ol>
+                    <li><strong>Симуляция на уровне поведения (Behavioral level simulation)</strong> — моделируется только внешнее поведение системы.</li>
+                    <li><strong>Симуляция на уровне инструкций (Instruction Set Simulation, ISS)</strong> — моделируется процессор, исполняющий машинный код на уровне инструкций.</li>
+                    <li><strong>Цикл-точная симуляция (Cycle-accurate simulation)</strong> — моделируется выполнение инструкций на уровне конкретных циклов процессора.</li>
+                    <li><strong>Симуляция на уровне передачи данных (RTL simulation)</strong> — моделируется передача данных между регистрами.</li>
+                    <li><strong>Симуляция на уровне логических элементов (Gate level simulation)</strong> — моделируются отдельные логические элементы аппаратного обеспечения.</li>
+                    </ol>
+                    <p>Симуляция на уровне инструкций (ISS) является наиболее подходящей для разработки большинства встроенных систем, поскольку она обеспечивает приемлемый уровень детализации без излишней сложности.</p>
+                    <p>Однако существует несколько ограничений для симуляторов ISS. Во-первых, многие коммерческие симуляторы не обладают достаточной производительностью для симуляции крупных систем с множеством микроконтроллеров. Во-вторых, они не всегда поддерживают широкий спектр архитектур микроконтроллеров, что ограничивает их гибкость. В-третьих, симуляторы часто не могут точно воспроизводить поведение реальных устройств, что ограничивает их полезность на более поздних этапах разработки.</p>
+                    <h3 id="-">Задачи и цели работы</h3>
+                    <p>В данной работе ставится цель разработать высокопроизводительный симулятор ISS, который будет отвечать следующим требованиям:</p>
+                    <ul>
+                    <li><strong>Производительность</strong> — симулятор должен обеспечивать выполнение в реальном времени.</li>
+                    <li><strong>Поддержка сложных систем</strong> — он должен быть способен моделировать многоконтроллерные системы с использованием параллельных вычислений.</li>
+                    <li><strong>Расширяемость</strong> — возможность добавления новых архитектур микроконтроллеров.</li>
+                    <li><strong>Поддержка внешних устройств</strong> — симулятор должен работать с внешними, непрограммируемыми устройствами.</li>
+                    <li><strong>Работа без исходного кода</strong> — симулятор должен работать с скомпилированным машинным кодом, без зависимости от исходного кода.</li>
+                    <li><strong>Отладка</strong> — возможность просмотра состояния системы в любой момент симуляции.</li>
+                    </ul>
+                    <p>Особое внимание уделяется использованию современных технологий, таких как многопоточность и SIMD (Single Instruction, Multiple Data), что позволит значительно повысить производительность симулятора.</p>
+                    <h3 id="-">Применение симуляторов в современной разработке встроенных систем</h3>
+                    <p>С развитием Интернета вещей (IoT) и встраиваемых систем, потребность в высокопроизводительных симуляторах для тестирования и отладки ПО возрастает. Встроенные системы становятся все более сложными и включают большое количество устройств с разнообразными характеристиками. Симуляторы помогают разработчикам тестировать и отлаживать ПО до его реализации на реальном оборудовании, что позволяет значительно ускорить процесс разработки.</p>
+                    <p>Симуляторы обеспечивают гибкость, позволяя вносить изменения в программное обеспечение без необходимости физической реконфигурации устройств, что сокращает время между выявлением ошибки и её исправлением. Это способствует повышению качества ПО и его надежности, снижая риски сбоев и ошибок в реальных условиях эксплуатации.</p>
+                    <h2 id="1-">Существующие разработки</h2>
+                    <p>Существующие системы симуляции встроенных систем (ISS) используют разнообразные технологии, которые обеспечивают разные компромиссы между производительностью и сложностью реализации. Эти технологии могут быть разделены на несколько типов симуляторов, включая интерпретирующие, компилирующие и динамически компилирующие.</p>
+                    <h3 id="1-1-">Типы симуляторов</h3>
+                    <p><strong>Интерпретирующие симуляторы</strong> — это самые простые в реализации системы, которые считывают и выполняют машинный код целевого процессора без дальнейших манипуляций. Процесс работы этих симуляторов можно описать в виде цикла &quot;fetch-decode-execute&quot; (получить, декодировать, выполнить). Несмотря на простоту реализации, интерпретирующие симуляторы имеют низкую производительность, так как каждый цикл включает не только выполнение целевого кода, но и дополнительные операции по получению и декодированию инструкций. Это значительно замедляет выполнение программы, особенно когда речь идет о современных процессорах с их оптимизаторами ветвлений. Однако, для многих микроконтроллеров с низкой тактовой частотой такое замедление вполне приемлемо.</p>
+                    <p><strong>Статически компилирующие симуляторы</strong> предлагают гораздо более высокую производительность. Они трансформируют весь код целевой архитектуры в код для хост-системы, что позволяет оптимизировать выполнение. Однако они требуют более сложной реализации, так как для каждой пары целевой и хостовой архитектуры необходимо создавать отдельные реализации инструкций. Это также ставит под угрозу использование оптимизаций, поскольку компилятор не имеет информации о реальном времени выполнения программы. Более того, такие симуляторы не могут эмулировать самомодифицирующиеся программы.</p>
+                    <p>Для уменьшения сложности можно использовать <strong>виртуальные машины (VM)</strong>. Этот подход позволяет сгенерировать байткод для целевой архитектуры, который выполняется на виртуальной машине, специально реализованной для каждой платформы. Это позволяет избежать необходимости поддерживать отдельные реализации инструкций для каждой архитектуры.</p>
+                    <div class="img-container">
+                        <img src="../assets/img1.png" alt="Перенаправляемость при помощи промежуточной VM">
+                        <p class="img-label">Перенаправляемость при помощи промежуточной VM</p>
+                    </div>
+                    <p><strong>Динамически компилирующие симуляторы</strong> (или &quot;just-in-time&quot; компиляторы) обеспечивают баланс между производительностью и гибкостью. Они компилируют код на лету, что позволяет оптимизировать его, основываясь на паттернах использования. Такие симуляторы обладают значительными преимуществами по скорости, но также требуют сложной реализации, так как помимо интерпретатора и компилятора нужно реализовать механизм сбора статистики о выполнении кода.</p>
+                    <h3 id="1-2-">Перенаправляемость</h3>
+                    <p>Перенаправляемость (retargetability) является важным аспектом разработки высокопроизводительных симуляторов. Это возможность добавлять новые целевые архитектуры в симулятор с минимальными затратами времени и ресурсов. Многие симуляторы, не учитывающие перенаправляемость, поддерживают только одну архитектуру, что затрудняет их использование в многопроцессорных проектах.</p>
+                    <p>Для достижения перенаправляемости используются специализированные языки, такие как VHDL и Verilog для описания аппаратуры, а также более высокоуровневые языки, такие как SystemC. Важным инструментом для создания перенаправляемых симуляторов являются языки описания архитектуры (ADL), такие как LISA и EXRESSION, которые позволяют описывать архитектуру процессора без углубления в детали микроархитектуры.</p>
+                    <h3 id="1-3-scheduling">Симуляция параллельных систем и Scheduling</h3>
+                    <p>В симуляции параллельных систем, где несколько микроконтроллеров работают одновременно, важным аспектом является управление временем выполнения. Когда система состоит из нескольких компонентов с разной тактовой частотой, требуется эффективный планировщик (scheduler), который управляет переключением между компонентами. Наиболее простой способ — это <strong>round-robin scheduler</strong>, который выполняет инструкции из разных компонентов поочередно. Однако, этот подход снижает производительность из-за частых переключений контекста.</p>
+                    <p>Для улучшения производительности можно использовать <strong>блочное выполнение</strong>, при котором каждый компонент выполняет сразу несколько инструкций. Это минимизирует затраты на переключение контекста, но снижает точность симуляции, так как временные зависимости между инструкциями могут нарушаться. Несмотря на это, современные системы проектируются таким образом, чтобы избежать ошибок, связанных с асинхронным выполнением (например, с помощью мьютексов и других методов синхронизации).</p>
+                    <h3 id="1-4-">Параллельная и распределенная симуляция</h3>
+                    <p>Для достижения высокоскоростной симуляции с несколькими параллельно выполняющимися компонентами используют многопоточность. Однако это требует решения проблемы синхронизации времени между компонентами. Одним из способов синхронизации является использование <strong>централизованного планировщика</strong> (scheduler), который координирует выполнение задач, определяя, какой компонент должен быть активирован в какой момент времени. Этот подход, хотя и прост в реализации, значительно снижает производительность.</p>
+                    <p>Для повышения производительности и уменьшения потерь времени предлагаются более сложные методы синхронизации, такие как <strong>децентрализованные алгоритмы</strong>, которые позволяют компонентам работать с рассинхронизированным локальным временем, синхронизируясь только в точках взаимодействия (sync points). Это снижает необходимость в строгом соблюдении глобального времени и позволяет ускорить выполнение.</p>
+                    <div class="img-container">
+                        <img src="../assets/img2.png" alt="Издержки синхронизации разными методами">
+                        <p class="img-label">Издержки синхронизации разными методами</p>
+                    </div>
+                    <p>Для <strong>распределенных симуляторов</strong>, работающих на нескольких физических машинах, применяют метод <strong>отката (rollback)</strong>. Этот метод позволяет системе работать параллельно, а при получении опоздавших сообщений восстанавливать состояние компонентов до предыдущего состояния, тем самым избегая ошибок синхронизации.</p>
+                    <h2 id="-">Архитектура симулятора</h2>
+                    <p>В данной работе рассматривается архитектура многопоточного симулятора микроконтроллера ATmega2560, использующего набор инструкций AVR. Симулятор построен на основе модульной архитектуры, которая позволяет эмулировать различные компоненты системы, такие как процессор, порты ввода-вывода, таймеры и другие аппаратные контроллеры. Каждый модуль системы может быть как активным, так и пассивным, в зависимости от того, требует ли он тактового сигнала или нет.</p>
+                    <h3 id="-">Модульная структура</h3>
+                    <p>Симуляция микроконтроллера разбивается на независимые модули, что облегчает их разработку и тестирование. Активные модули, такие как процессор, выполняют инструкции на основе тактового сигнала, тогда как пассивные модули, например, контроллеры GPIO, ожидают запросы на чтение или запись и могут инициировать асинхронные события. Для синхронизации работы различных модулей используется система очередей событий, которая организует выполнение событий в порядке их наступления.</p>
+                    <h4 id="-">Архитектура модулей</h4>
+                    <p>Каждый модуль имеет уникальный адрес и может быть представлен в иерархической структуре. Модуль может содержать другие модули, образуя древовидную структуру, где каждый активный модуль является корнем для своей группы подмодулей. Это позволяет эффективно распределять события между модулями, отправляя их по адресам в очередь событий, которая отсортирована по времени.</p>
+                    <div class="img-container">
+                        <img src="../assets/img3.png" alt="Иерархическая структура модулей">
+                        <p class="img-label">Иерархическая структура модулей</p>
+                    </div>
+                    <p>Все модули в системе реализуют интерфейсы, такие как <code>Module</code> и <code>WireableModule</code>, которые определяют методы для обработки событий, поиска подмодулей, и взаимодействия с проводными соединениями. Каждый модуль может взаимодействовать с другими модулями через специальные порты, что позволяет моделировать реальное подключение компонентов.</p>
+                    <h4 id="-">Асинхронная симуляция</h4>
+                    <p>Для повышения производительности симуляции, особенно в случае с таймерами, используется асинхронная модель обработки событий. Вместо того чтобы обновлять все таймеры на каждом такте процессора, события, связанные с таймерами, могут быть запланированы заранее. Это позволяет значительно уменьшить вычислительные затраты, поскольку не нужно постоянно отслеживать изменения во всех таймерах.</p>
+                    <h3 id="-">Таймеры</h3>
+                    <p>Микроконтроллер ATmega2560 имеет несколько встроенных таймеров с различными характеристиками. В реальной системе таймеры используют счетчики с делителями (prescaler), которые управляют тактовой частотой. В симуляторе таймеры реализованы с использованием асинхронных событий: каждый раз, когда в регистры таймера записываются новые значения, рассчитывается момент наступления следующего события, и оно добавляется в очередь событий. Таким образом, симулятор не теряет время на обновление состояния таймеров на каждом такте, что значительно ускоряет выполнение симуляции.</p>
+                    <h3 id="-">Механизм проводных соединений</h3>
+                    <p>В симуляторе важную роль играют проводные соединения между модулями. Каждый провод может иметь несколько состояний, таких как высокий уровень (High), низкий уровень (Low), высокоимпедансное состояние (Z), ошибка (Error) или слабое напряжение (WeakHigh, WeakLow). Эти состояния комбинируются в зависимости от подключенных модулей, и при изменении состояния провода события могут быть добавлены в очередь для обработки.</p>
+                    <div class="img-container">
+                        <img src="../assets/img4.png" alt="Правила комбинаций состояний">
+                        <p class="img-label">Правила комбинаций состояний</p>
+                    </div>
+                    <p>Каждый модуль, поддерживающий проводные соединения, реализует интерфейс <code>WireableModule</code>, который позволяет читать и изменять состояния контактов. Состояния контактов индексируются уникальными идентификаторами, что позволяет моделировать сложные взаимодействия между модулями.</p>
+                    <h3 id="-">Мультиплексоры</h3>
+                    <p>Множество микроконтроллеров, включая ATmega2560, используют мультиплексоры для управления функциями контактов. Один контакт может выполнять различные функции в зависимости от состояния внутренних регистров. Симулятор учитывает это с помощью таблиц мультиплексоров, которые определяют соответствие между внешним контактом и внутренними состояниями. Когда меняется состояние внешнего контакта, оно перенаправляется на активный внутренний контакт.</p>
+                    <h3 id="-">Тактовый генератор</h3>
+                    <p>В симуляторе реализована поддержка различных тактовых частот для активных модулей. Каждый активный модуль имеет свой тактовый генератор, который синхронизируется с глобальным временем. Для этого используется два типа времени: глобальное время и локальное время (тактовое), что позволяет точно синхронизировать события между модулями с разными тактовыми частотами. Конвертация между типами времени предотвращает возможные ошибки при работе с разными системами времени.</p>
+                    <h4 id="-">Очередь событий</h4>
+                    <p>Очередь событий (EventQueue) используется для хранения событий, которые должны быть выполнены в определенный момент времени. Эти события могут быть связаны с изменением состояний модулей или с проводными соединениями. Каждый модуль может добавлять новые события в очередь, что позволяет асинхронно управлять процессами в симуляции. Важно, что события проверяются и обрабатываются только когда наступает соответствующий момент времени, что исключает лишние вычисления и повышает производительность симуляции.</p>
+                    <h2 id="-">Механизмы симуляции</h2>
+                    <h3 id="3-1-">Симуляция интерпретацией</h3>
+                    <p>Первым рассмотренным методом симуляции является интерпретация. Этот способ предполагает использование внутренней модели микроконтроллера, включающей все его регистры и устройства ввода-вывода. При выполнении программы микроконтроллер читает инструкции из flash-памяти, декодирует их и выполняет соответствующие операции над регистрами. Важной особенностью является то, что при работе с памятью устройства ввода-вывода происходит вызов методов, управляющих этими подмодулями. Микроконтроллер выполняет инструкции, и при этом также учитывается количество тактов, затраченных на выполнение каждой инструкции.</p>
+                    <p>Однако этот метод имеет определенные недостатки, связанные с его низкой эффективностью. Так как для выполнения каждой инструкции требуется её декодирование и интерпретация, время работы симулятора значительно увеличивается. Кроме того, поиск ошибок, особенно в части флагов процессора, является сложной задачей. Чтобы ускорить процесс отладки, были использованы юнит-тесты, проверяющие работу инструкций и корректность состояния флагов в различных ситуациях. Несмотря на временные затраты, интерпретация остаётся важным инструментом для получения подробной информации о выполнении программы, например, о состоянии внутренних регистров, что делает её полезной в отладочном режиме.</p>
+                    <h3 id="3-2-jit-">Симуляция JIT-компиляцией</h3>
+                    <p>Более эффективным методом является JIT-компиляция, которая позволяет скомпилировать инструкции микроконтроллера в машинный код хоста по мере их выполнения. В отличие от статической компиляции, при которой весь код преобразуется заранее, JIT-компиляция выполняется динамически, что позволяет избежать проблем, связанных с переходами по неявным адресам, часто встречающимся в программировании микроконтроллеров.</p>
+                    <p>Процесс JIT-компиляции начинается с создания кэша единиц трансляции, который хранит уже скомпилированные участки кода. Когда симулятор достигает определённого участка кода, он либо находит его в кэше, либо компилирует его в реальном времени. Это значительно ускоряет процесс по сравнению с интерпретацией, так как компиляция позволяет сразу генерировать машинный код для выполнения, а не тратить время на декодирование инструкций.</p>
+                    <p>Особенностью JIT-компиляции является необходимость оптимизации вычисления флагов процессора. Для этого используется метод отслеживания флагов, при котором компилятор отслеживает, какие инструкции изменяют флаги, и на основании этой информации минимизирует количество вычислений, требующих изменения флагов. Это позволяет существенно сократить объём генерируемого кода и ускорить его выполнение. Однако, несмотря на преимущества, JIT-компиляция также сопряжена с определёнными сложностями, такими как обработка доступа к памяти и необходимости вызова внешних функций при обращении к периферийным устройствам. Чтобы минимизировать эти задержки, были предложены методы оптимизации, такие как проверка адреса памяти напрямую в сгенерированном коде.</p>
+                    <p>Кроме того, при использовании JIT-компиляции возникает проблема синхронизации событий. Для правильной обработки событий в многопоточном симуляторе требуется эффективный механизм, обеспечивающий точное взаимодействие между различными модулями. Одним из решений этой проблемы является добавление дополнительного поля в очередь событий, которое позволяет симулятору определять время следующего события и обрабатывать его без значительных потерь в точности.</p>
+                    <h3 id="3-3-">Механизм синхронизации</h3>
+                    <p>Синхронизация активных модулей в многопоточном симуляторе является важной задачей для правильной работы всего системы. Поскольку различные модули могут взаимодействовать между собой, важно соблюдать порядок их взаимодействия, чтобы избежать ошибок в симуляции. Одним из вариантов синхронизации является точная синхронизация, при которой все события должны быть получены до того, как симулятор достигнет момент времени, когда эти события должны быть обработаны. Однако этот подход приводит к значительным затратам времени и ресурсов, что делает его непрактичным для работы с большими системами.</p>
+                    <p>Вместо точной синхронизации применяется синхронизация по чтению, когда события могут быть обработаны с небольшой задержкой, но до того, как они повлияют на выполнение программы. Это позволяет добиться более высокой скорости работы системы, сохраняя при этом логику симуляции. В случае с высокоскоростными протоколами связи, реализованными в коде активных модулей, необходима более точная синхронизация, но для большинства систем такой подход с допустимыми задержками оказывается вполне достаточным.</p>
+                    <h3 id="3-4-">Результаты</h3>
+                    <p>В ходе работы был реализован многопоточный симулятор, разработанный на языке Rust для обеспечения высокой производительности. Для оценки его эффективности были проведены тесты с несколькими программами, использующими систему ввода-вывода и таймеры микроконтроллера. Замеры показали, что симулятор с использованием пассивных модулей для таймеров в 3-6 раз быстрее в активных режимах работы и до 3000 раз быстрее в режиме ожидания, по сравнению с более простым симулятором. Дополнительное ускорение было достигнуто благодаря внедрению JIT-компиляции, которая также повысила производительность в 2-3 раза.</p>
+                    <h2 id="-">Заключение</h2>
+                    <p>Разработанный симулятор демонстрирует высокую эффективность и точность при симуляции работы микроконтроллеров. Он поддерживает несколько механизмов симуляции, включая интерпретацию и JIT-компиляцию, а также использует оптимизированную синхронизацию для работы в многозадачной среде. Результаты тестирования показали, что симулятор может эффективно моделировать работу программ, обрабатывающих различные внешние события. В будущем предполагается дальнейшее улучшение механизма компиляции для достижения ещё более высокой производительности и расширения возможностей симулятора.</p>
+                    <h2>Список используемых источников</h2>
+                    <ol>
+                        <li>Helmstetter, C. SimSoC: A full system simulation software for embedded systems / C. Helmstetter, V. Joloboff, H. Xiao // 2009 IEEE International Workshop on Open-source Software for Scientific Computation (OSSC). – 2009. – P. 49-55. – DOI 10.1109/OSSC.2009.5416870.</li>
+                        <li>Zhu, J. An ultra-fast instruction set simulator / J. Zhu, D. Gajski // Very Large Scale Integration (VLSI) Systems, IEEE Transactions on. – 10. – 2002. – P. 55-95. – DOI 10.1109/TVLSI.2002.1043339.</li>
+                        <li>A Universal Technique for Fast and Flexible Instruction-Set Architecture Simulation / G. Braun, A. Nohl, A. Hoffmann [и др] // Computer-Aided Design of Integrated Circuits and Systems, IEEE Transactions on. – 23. – 2005. – P. 1625-1639. – DOI 10.1109/TCAD.2004.836734.</li>
+                        <li>An efficient retargetable framework for instruction-set simulation / M. Reshadi, N. Bansal, P. Mishra, N. Dutt // First IEEE/ACM/IFIP International Conference on Hardware/ Software Codesign and Systems Synthesis (IEEE Cat. No.03TH8721). – 2003. – P. 13-18. – DOI 10.1109/CODESS.2003.1275249.</li>
+                        <li>A distributed timing synchronization technique for parallel multi-core instruction-set simulation / M-H. Wu, C-Y. Fu, P-C. Wang, R-S. Tsay // ACM Trans. Embed. Comput. Syst. – 12. – 2013. – P. 24. – DOI 10.1145/2435227.2435250.</li>
+                    </ol>
+                </div>
+            </section>
+            <section class="presentation">
+                <div class="hidable-title" id="section2-title" onclick="toggleSection('section2')">
+                    <h2><span class="arrow" id="section2-arrow">▶</span> Реферат на английском</h2>
+                </div>
+                
+                <div class="hidable-content" id="section2-content">
+
+                    <h2 id="-">Introduction</h2>
+                    <p>Computational theory traditionally focuses on software as an implementation of mathematical functions that transform input data into output. The execution mechanism of these functions is considered secondary and is viewed through the abstraction of the Turing machine. In contrast, embedded software (SW) is focused on interacting with the real world, controlling physical processes and devices such as cars, medical devices, robots, audio equipment, security systems, and much more.</p>
+                    <p>Development of embedded SW has its own peculiarities and requirements that distinguish it from traditional software. Key requirements include:</p>
+                    <ol>
+                    <li><strong>Time constraints</strong> — SW must consider time aspects both for instruction execution and interaction with the real world.</li>
+                    <li><strong>Energy constraints</strong> — minimizing energy consumption is a critical task for many embedded systems.</li>
+                    <li><strong>Parallelism</strong> — embedded systems often need to handle multiple processes running simultaneously, which requires appropriate data handling.</li>
+                    <li><strong>Heterogeneity of external devices</strong> — devices interacting with the SW can have different protocols and characteristics.</li>
+                    <li><strong>Heterogeneity of computing devices</strong> — different devices on which the SW runs may have different architectures, requiring high flexibility and support for multiple platforms.</li>
+                    <li><strong>Fault tolerance</strong> — embedded SW must be highly resilient and always ready for recovery after failures.</li>
+                    </ol>
+                    <p>These characteristics make embedded SW testing particularly important and complex. The testing process requires interaction with real devices and is often impossible without physical test stands, which significantly slow down and complicate the development process.</p>
+                    <h3 id="-">The Role of Simulators in Testing Embedded Systems</h3>
+                    <p>To simplify testing and speed up development, simulators are used — software tools that allow modeling the operation of embedded systems without the need for real hardware. Simulators make it possible to test embedded SW on virtual devices, allowing both manual and automated testing without the delays associated with physical test stands.</p>
+                    <p>Simulators can be classified by levels of abstraction:</p>
+                    <ol>
+                    <li><strong>Behavioral level simulation</strong> — only the external behavior of the system is modeled.</li>
+                    <li><strong>Instruction Set Simulation (ISS)</strong> — the processor executing machine code at the instruction level is modeled.</li>
+                    <li><strong>Cycle-accurate simulation</strong> — instruction execution is modeled at the level of specific processor cycles.</li>
+                    <li><strong>RTL simulation</strong> — data transmission between registers is modeled.</li>
+                    <li><strong>Gate level simulation</strong> — individual hardware logic elements are modeled.</li>
+                    </ol>
+                    <p>Instruction Set Simulation (ISS) is the most suitable for developing most embedded systems as it provides an acceptable level of detail without excessive complexity.</p>
+                    <p>However, there are several limitations to ISS simulators. First, many commercial simulators do not have sufficient performance to simulate large systems with many microcontrollers. Second, they do not always support a wide range of microcontroller architectures, limiting their flexibility. Third, simulators often cannot accurately reproduce the behavior of real devices, limiting their usefulness in later stages of development.</p>
+                    <h3 id="-">Goals and Objectives of the Work</h3>
+                    <p>This work aims to develop a high-performance ISS simulator that meets the following requirements:</p>
+                    <ul>
+                    <li><strong>Performance</strong> — the simulator must support real-time execution.</li>
+                    <li><strong>Support for complex systems</strong> — it should be capable of modeling multi-controller systems using parallel computing.</li>
+                    <li><strong>Extensibility</strong> — the ability to add new microcontroller architectures.</li>
+                    <li><strong>Support for external devices</strong> — the simulator should work with external, non-programmable devices.</li>
+                    <li><strong>Works without source code</strong> — the simulator should work with compiled machine code, independent of the source code.</li>
+                    <li><strong>Debugging</strong> — the ability to view the system state at any point during the simulation.</li>
+                    </ul>
+                    <p>Special attention is given to using modern technologies, such as multithreading and SIMD (Single Instruction, Multiple Data), which will significantly improve the simulator's performance.</p>
+                    <h3 id="-">The Use of Simulators in Modern Embedded Systems Development</h3>
+                    <p>With the development of the Internet of Things (IoT) and embedded systems, the demand for high-performance simulators for testing and debugging software is growing. Embedded systems are becoming increasingly complex, incorporating numerous devices with varying characteristics. Simulators help developers test and debug SW before it is implemented on real hardware, significantly accelerating the development process.</p>
+                    <p>Simulators provide flexibility, allowing changes to be made to the software without the need for physical reconfiguration of devices, thus reducing the time between detecting and fixing errors. This helps improve software quality and reliability, reducing the risks of failures and errors in real-world operation.</p>
+                    <h2 id="1-">Existing Developments</h2>
+                    <p>Existing embedded system simulation (ISS) systems use various technologies that offer different trade-offs between performance and implementation complexity. These technologies can be divided into several types of simulators, including interpreting, compiling, and dynamically compiling simulators.</p>
+                    <h3 id="1-1-">Types of Simulators</h3>
+                    <p><strong>Interpreting simulators</strong> are the simplest systems to implement, which read and execute machine code of the target processor without further manipulation. The operation of these simulators can be described as a "fetch-decode-execute" cycle. Despite their simplicity, interpreting simulators have low performance since each cycle includes not only executing target code but also additional operations for fetching and decoding instructions. This significantly slows down program execution, especially for modern processors with branch optimizers. However, for many low-frequency microcontrollers, such delays are acceptable.</p>
+                    <p><strong>Statically compiling simulators</strong> offer much higher performance. They transform the entire code for the target architecture into code for the host system, allowing for execution optimization. However, they require more complex implementation, as a separate instruction implementation must be created for each target and host architecture pair. This also jeopardizes the use of optimizations since the compiler lacks information about the real-time execution of the program. Moreover, such simulators cannot emulate self-modifying programs.</p>
+                    <p>To reduce complexity, <strong>virtual machines (VM)</strong> can be used. This approach allows generating bytecode for the target architecture, which is executed on a virtual machine specifically implemented for each platform. This eliminates the need to maintain separate instruction implementations for each architecture.</p>
+                    <div class="img-container">
+                        <img src="../assets/img1.png" alt="Retargetability using intermediate VM">
+                        <p class="img-label">Retargetability using intermediate VM</p>
+                    </div>
+                    <p><strong>Dynamically compiling simulators</strong> (or "just-in-time" compilers) provide a balance between performance and flexibility. They compile the code on the fly, allowing it to be optimized based on usage patterns. Such simulators offer significant speed advantages but also require a complex implementation since, in addition to the interpreter and compiler, a mechanism for collecting execution statistics must be implemented.</p>
+                    <h3 id="1-2-">Retargetability</h3>
+                    <p>Retargetability is an important aspect of developing high-performance simulators. It refers to the ability to add new target architectures to the simulator with minimal time and resource costs. Many simulators that do not account for retargetability only support one architecture, making them difficult to use in multiprocessor projects.</p>
+                    <p>To achieve retargetability, specialized languages such as VHDL and Verilog are used for hardware description, as well as higher-level languages like SystemC. An important tool for creating retargetable simulators is architecture description languages (ADL), such as LISA and EXRESSION, which allow describing processor architecture without delving into microarchitecture details.</p>
+                    <h3 id="1-3-scheduling">Parallel System Simulation and Scheduling</h3>
+                    <p>In the simulation of parallel systems, where multiple microcontrollers operate simultaneously, a key aspect is managing execution time. When a system consists of multiple components with different clock frequencies, an efficient scheduler is required to manage switching between components. The simplest method is a <strong>round-robin scheduler</strong>, which executes instructions from different components sequentially. However, this approach reduces performance due to frequent context switches.</p>
+                    <p>To improve performance, <strong>block execution</strong> can be used, where each component executes several instructions at once. This minimizes context-switching costs but reduces simulation accuracy since temporal dependencies between instructions may be violated. Nevertheless, modern systems are designed to avoid errors related to asynchronous execution (e.g., using mutexes and other synchronization methods).</p>
+                    <h3 id="1-4-">Parallel and Distributed Simulation</h3>
+                    <p>To achieve high-speed simulation with multiple parallel components, multithreading is used. However, this requires solving the problem of synchronizing time between components. One synchronization method is using a <strong>centralized scheduler</strong> that coordinates task execution, determining which component should be activated at a given moment. Although simple to implement, this approach significantly reduces performance.</p>
+                    <p>To improve performance and reduce time losses, more complex synchronization methods are proposed, such as <strong>decentralized algorithms</strong>, which allow components to work with desynchronized local time, only synchronizing at interaction points (sync points). This reduces the need to strictly adhere to global time and speeds up execution.</p>
+                    <div class="img-container">
+                        <img src="../assets/img2.png" alt="Synchronization costs of different methods">
+                        <p class="img-label">Synchronization costs of different methods</p>
+                    </div>
+                    <p>For <strong>distributed simulators</strong> running on multiple physical machines, the <strong>rollback</strong> method is used. This method allows the system to run in parallel, and when delayed messages are received, the state of components is restored to a previous state, thus avoiding synchronization errors.</p>
+                    <h2 id="-">Simulator Architecture</h2>
+                    <p>This paper discusses the architecture of a multithreaded simulator for the ATmega2560 microcontroller, which uses the AVR instruction set. The simulator is based on a modular architecture that allows emulation of various system components, such as the processor, input/output ports, timers, and other hardware controllers. Each system module can be either active or passive, depending on whether it requires a clock signal or not.</p>
+                    <h3 id="-">Modular Structure</h3>
+                    <p>The microcontroller simulation is divided into independent modules, which simplifies their development and testing. Active modules, such as the processor, execute instructions based on the clock signal, while passive modules, such as GPIO controllers, wait for read or write requests and can initiate asynchronous events. To synchronize the operation of various modules, an event queue system is used, which organizes the execution of events in the order they occur.</p>
+                    <h4 id="-">Module Architecture</h4>
+                    <p>Each module has a unique address and can be represented in a hierarchical structure. A module can contain other modules, forming a tree-like structure where each active module serves as the root for its group of submodules. This allows efficient distribution of events between modules by sending them to the event queue, which is sorted by time.</p>
+                    <div class="img-container">
+                        <img src="../assets/img3.png" alt="Module hierarchy">
+                        <p class="img-label">Module hierarchy</p>
+                    </div>
+                    <p>All modules in the system implement interfaces such as <code>Module</code> and <code>WireableModule</code>, which define methods for event handling, searching for submodules, and interacting with wired connections. Each module can interact with other modules through special ports, allowing the modeling of real-world component connections.</p>
+                    <h4 id="-">Asynchronous Simulation</h4>
+                    <p>To improve simulation performance, especially in the case of timers, an asynchronous event processing model is used. Instead of updating all timers on each processor clock cycle, events related to timers can be scheduled in advance. This significantly reduces computational costs, as there is no need to constantly track changes in all timers.</p>
+                    <h3 id="-">Timers</h3>
+                    <p>The ATmega2560 microcontroller has several built-in timers with different characteristics. In a real system, timers use prescaler counters to manage clock frequencies. In the simulator, timers are implemented using asynchronous events: each time new values are written to the timer registers, the next event time is calculated and added to the event queue. This way, the simulator does not waste time updating timer states on every clock cycle, which speeds up the simulation process.</p>
+                    <h3 id="-">Wired Connection Mechanism</h3>
+                    <p>Wired connections between modules play an important role in the simulator. Each wire can have several states, such as high (High), low (Low), high impedance (Z), error (Error), or weak voltage (WeakHigh, WeakLow). These states are combined depending on the connected modules, and when the wire state changes, events can be added to the queue for processing.</p>
+                    <div class="img-container">
+                        <img src="../assets/img4.png" alt="Wire state combination rules">
+                        <p class="img-label">Wire state combination rules</p>
+                    </div>
+                    <p>Each module supporting wired connections implements the <code>WireableModule</code> interface, which allows reading and changing the states of contacts. Contact states are indexed by unique identifiers, enabling the modeling of complex interactions between modules.</p>
+                    <h3 id="-">Multiplexers</h3>
+                    <p>Many microcontrollers, including the ATmega2560, use multiplexers to manage contact functions. A single contact can perform different functions depending on the state of internal registers. The simulator accounts for this using multiplexer tables that define the correspondence between external contacts and internal states. When the state of an external contact changes, it is redirected to the active internal contact.</p>
+                    <h3 id="-">Clock Generator</h3>
+                    <p>The simulator supports various clock frequencies for active modules. Each active module has its own clock generator, synchronized with global time. Two types of time are used: global time and local time (clock time), which allows precise synchronization of events between modules with different clock frequencies. Conversion between time types prevents potential errors when working with different time systems.</p>
+                    <h4 id="-">Event Queue</h4>
+                    <p>The Event Queue is used to store events that need to be executed at a specific time. These events can be related to state changes of modules or wired connections. Each module can add new events to the queue, enabling asynchronous control of processes in the simulation. Importantly, events are checked and processed only when the corresponding time arrives, eliminating unnecessary computations and improving simulation performance.</p>
+                    <h2 id="-">Simulation Mechanisms</h2>
+                    <h3 id="3-1-">Interpretation Simulation</h3>
+                    <p>The first simulation method discussed is interpretation. This approach involves using an internal model of the microcontroller, which includes all its registers and input/output devices. When executing a program, the microcontroller reads instructions from flash memory, decodes them, and performs the corresponding operations on registers. A key feature is that when working with memory or input/output devices, methods that control these submodules are called. The microcontroller executes instructions, also taking into account the number of clock cycles spent on each instruction.</p>
+                    <p>However, this method has certain drawbacks related to its inefficiency. Since each instruction requires decoding and interpretation, the simulation time increases significantly. Moreover, debugging, especially concerning processor flags, is a complex task. To speed up the debugging process, unit tests were used to check instruction execution and flag correctness in different situations. Despite the time costs, interpretation remains an important tool for obtaining detailed information about program execution, such as the state of internal registers, making it useful in debugging mode.</p>
+                    <h3 id="3-2-jit-">JIT Compilation Simulation</h3>
+                    <p>A more efficient method is JIT (Just-In-Time) compilation, which allows microcontroller instructions to be compiled into host machine code as they are executed. Unlike static compilation, where the entire code is precompiled, JIT compilation is performed dynamically, allowing issues with implicit address transitions, often encountered in microcontroller programming, to be avoided.</p>
+                    <p>The JIT compilation process begins by creating a translation unit cache that stores already compiled code segments. When the simulator reaches a certain code segment, it either finds it in the cache or compiles it in real-time. This significantly accelerates the process compared to interpretation, as compilation immediately generates machine code for execution, rather than spending time decoding instructions.</p>
+                    <p>An aspect of JIT compilation is the need to optimize the calculation of processor flags. To achieve this, a flag tracking method is used, where the compiler tracks which instructions change flags and, based on this information, minimizes the number of calculations that require flag changes. This reduces the amount of generated code and speeds up its execution. However, despite its advantages, JIT compilation also presents challenges, such as handling memory access and calling external functions when accessing peripheral devices. To minimize these delays, optimization methods have been proposed, such as directly checking memory addresses in the generated code.</p>
+                    <p>Additionally, when using JIT compilation, there is an issue of event synchronization. To correctly handle events in a multithreaded simulator, an efficient mechanism is required to ensure precise interaction between different modules. One solution to this problem is adding an additional field in the event queue, which allows the simulator to determine the next event's time and process it with minimal loss in accuracy.</p>
+                    <h3 id="3-3-">Synchronization Mechanism</h3>
+                    <p>Synchronizing active modules in a multithreaded simulator is a crucial task for ensuring the correct operation of the entire system. Since various modules can interact with each other, it is important to maintain the order of interactions to avoid errors in the simulation. One synchronization option is precise synchronization, where all events must be received before the simulator reaches the moment in time when those events should be processed. However, this approach results in significant time and resource costs, making it impractical for large systems.</p>
+                    <p>Instead of precise synchronization, read-based synchronization is used, where events can be processed with a slight delay, but before they impact the program's execution. This allows for higher system speed while maintaining simulation logic. For high-speed communication protocols implemented in the active modules' code, more precise synchronization is required, but for most systems, this approach with acceptable delays proves to be sufficient.</p>
+                    <h3 id="3-4-">Results</h3>
+                    <p>A multithreaded simulator was implemented during the course of the work, developed in Rust to ensure high performance. To evaluate its efficiency, tests were conducted with several programs that used the microcontroller's input/output system and timers. Measurements showed that the simulator using passive modules for timers was 3-6 times faster in active modes and up to 3000 times faster in idle mode, compared to a simpler simulator. Additional acceleration was achieved by implementing JIT compilation, which also increased performance by 2-3 times.</p>
+                    <h2 id="-">Conclusion</h2>
+                    <p>The developed simulator demonstrates high efficiency and accuracy when simulating the operation of microcontrollers. It supports several simulation mechanisms, including interpretation and JIT compilation, and uses optimized synchronization for operation in a multithreaded environment. Test results showed that the simulator can effectively model the behavior of programs handling various external events. Future plans include further improving the compilation mechanism to achieve even higher performance and expand the simulator's capabilities.</p>
+                    <h2>Sources</h2>
+                    <ol>
+                        <li>Helmstetter, C. SimSoC: A full system simulation software for embedded systems / C. Helmstetter, V. Joloboff, H. Xiao // 2009 IEEE International Workshop on Open-source Software for Scientific Computation (OSSC). – 2009. – P. 49-55. – DOI 10.1109/OSSC.2009.5416870.</li>
+                        <li>Zhu, J. An ultra-fast instruction set simulator / J. Zhu, D. Gajski // Very Large Scale Integration (VLSI) Systems, IEEE Transactions on. – 10. – 2002. – P. 55-95. – DOI 10.1109/TVLSI.2002.1043339.</li>
+                        <li>A Universal Technique for Fast and Flexible Instruction-Set Architecture Simulation / G. Braun, A. Nohl, A. Hoffmann [и др] // Computer-Aided Design of Integrated Circuits and Systems, IEEE Transactions on. – 23. – 2005. – P. 1625-1639. – DOI 10.1109/TCAD.2004.836734.</li>
+                        <li>An efficient retargetable framework for instruction-set simulation / M. Reshadi, N. Bansal, P. Mishra, N. Dutt // First IEEE/ACM/IFIP International Conference on Hardware/ Software Codesign and Systems Synthesis (IEEE Cat. No.03TH8721). – 2003. – P. 13-18. – DOI 10.1109/CODESS.2003.1275249.</li>
+                        <li>A distributed timing synchronization technique for parallel multi-core instruction-set simulation / M-H. Wu, C-Y. Fu, P-C. Wang, R-S. Tsay // ACM Trans. Embed. Comput. Syst. – 12. – 2013. – P. 24. – DOI 10.1145/2435227.2435250.</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Подготовил Максим Мичков, 2024.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            const content = document.querySelector(`#${id}-content`);
+            const arrow = document.querySelector(`#${id}-arrow`);
+          
+            // Toggle the display of the content
+            content.classList.toggle('show');
+          
+            // Toggle the arrow rotation
+            arrow.classList.toggle('rotate');
+        }
+    </script>
+</body>
+</html>
