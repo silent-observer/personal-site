@@ -242,3 +242,13 @@ section.intro p {
     max-width: 800px;;
     height: auto;
 }
+
+.code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+pre code.hljs {
+    padding: 0 2em;
+    width: fit-content;
+    margin: auto;
+}
